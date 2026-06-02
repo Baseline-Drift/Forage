@@ -101,8 +101,31 @@
       "/\\_/\\\n( -.- )\n > 🙅 <\n\nACE STARES AT YOU.\nYOU KNOW WHAT YOU DID.",
       "/\\_/\\\n( ._. )\n > 🙅 <\n\nTHIS IS FOR GROCERIES.\nBEHAVE YOURSELF.",
     ];
-    const PROFANITY = ['shit','fuck','cunt','ass','dick','bitch','piss','cock','pussy','bastard','wank','arse'];
-    const hasProfanity = t => PROFANITY.some(w => t.toLowerCase().includes(w));
+
+    // Contextual Ace reactions
+    const ACE_CONTEXTUAL = [
+      { words: ['penis','dick','cock','willy','wanger','schlong'],
+        msg: "/\\_/\\\n( ◔_◔ )\n > 🌭 <\n\nACE FOUND A HOTDOG.\nHOW CONVENIENT." },
+      { words: ['boob','boobs','breast','breasts','tit','tits','nipple'],
+        msg: "/\\_/\\\n( ᵔ_ᵔ )\n > 🥥 <\n\nACE FOUND THE COCONUTS.\nSHE IS JUDGING YOU." },
+      { words: ['butt','bum','arse','ass','buttock','backside'],
+        msg: "/\\_/\\\n( ˘_˘ )\n > 🍑 <\n\nACE FOUND A PEACH.\nVERY SUSPICIOUS." },
+      { words: ['vagina','vag','fanny','pussy','vulva'],
+        msg: "/\\_/\\\n( ¬_¬ )\n > 🌮 <\n\nACE FOUND A TACO.\nSHE IS NOT AMUSED." },
+    ];
+
+    const GENERIC_PROFANITY = ['shit','fuck','cunt','bitch','piss','bastard','wank'];
+
+    const getProfanityReaction = t => {
+      const lower = t.toLowerCase();
+      for (const { words, msg } of ACE_CONTEXTUAL) {
+        if (words.some(w => lower.includes(w))) return msg;
+      }
+      if (GENERIC_PROFANITY.some(w => lower.includes(w))) {
+        return ACE_DISAPPOINTED[Math.floor(Math.random() * ACE_DISAPPOINTED.length)];
+      }
+      return null;
+    };
 
     /* ── App ──────────────────────────────────────── */
     function App() {
@@ -220,7 +243,8 @@
       const addItem = cat=>{
         const text = newItemText.trim();
         if(!text) return;
-        if(hasProfanity(text)){ setAceMsg(ACE_DISAPPOINTED[Math.floor(Math.random()*ACE_DISAPPOINTED.length)]); return; }
+        const reaction = getProfanityReaction(text);
+        if(reaction){ setAceMsg(reaction); return; }
         setCustomItems(p=>({...p,[cat]:[...(p[cat]||[]),text]}));
         setFreqItems(p=>({...p,[text]:(p[text]||0)+1}));
         setNewItemText(''); setSuggestions([]); setEditingCat(null);
@@ -499,7 +523,7 @@
                             </div>
                           ):(
                             <button onClick={()=>setEditQtyKey(key)} style={{...mono,background:qty>1?'#f0e8d4':'transparent',border:qty>1?'1px solid #e0c89e':'1px solid transparent',borderRadius:4,padding:'2px 5px',fontSize:11,color:qty>1?'#8a6a3a':'#ccc',cursor:'pointer'}}>
-                              {qty>1?`×${qty}`:'×'}
+                              {qty>1?`×${qty}`:'+'}
                             </button>
                           )}
 
