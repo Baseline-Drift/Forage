@@ -29,6 +29,7 @@
   <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
   <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script src="https://unpkg.com/peerjs@1.5.2/dist/peerjs.min.js"></script>
   <script type="text/babel">
     const { useState, useEffect, useRef, useCallback } = React;
 
@@ -171,6 +172,12 @@
       const undoTimer  = useRef(null);
       const nameTimer  = useRef(null);
       const titleTimer = useRef(null);
+      const peerRef    = useRef(null);
+      const connRef    = useRef(null);
+
+      const [syncModal,  setSyncModal]  = useState(false);
+      const [syncState,  setSyncState]  = useState(null); // hosting|connecting|connected|syncing|done|error
+      const [syncPeerId, setSyncPeerId] = useState(null);
 
       const T = THEMES[theme];
       const mono = { fontFamily: "'DM Mono', monospace" };
@@ -184,7 +191,7 @@
       useEffect(()=>save(K.theme,      theme),       [theme]);
       useEffect(()=>save(K.customCats, customCats),  [customCats]);
       useEffect(()=>{ if(lastShop) save(K.lastShop, lastShop); }, [lastShop]);
-      useEffect(()=>()=>{ clearTimeout(holdTimer.current); clearTimeout(undoTimer.current); clearTimeout(nameTimer.current); clearTimeout(titleTimer.current); },[]);
+      useEffect(()=>()=>{ clearTimeout(holdTimer.current); clearTimeout(undoTimer.current); clearTimeout(nameTimer.current); clearTimeout(titleTimer.current); if(peerRef.current) peerRef.current.destroy(); },[]);
 
       /* tab badge */
       useEffect(()=>{
@@ -196,15 +203,20 @@
       /* parse shared URL on load */
       useEffect(()=>{
         const params = new URLSearchParams(window.location.search);
-        const enc = params.get('list');
-        if (!enc) return;
-        try {
-          const keys = JSON.parse(atob(enc));
-          setItemState(p=>{ const n={...p}; keys.forEach(k=>{n[k]={...(n[k]||{checked:false,qty:1}),starred:true};}); return n; });
-          setMode('faves');
-          showToast('Shared list loaded ✓');
+        const enc    = params.get('list');
+        const syncId = params.get('sync');
+        if(enc){
+          try {
+            const keys = JSON.parse(atob(enc));
+            setItemState(p=>{ const n={...p}; keys.forEach(k=>{n[k]={...(n[k]||{checked:false,qty:1}),starred:true};}); return n; });
+            setMode('faves'); showToast('Shared list loaded ✓');
+            window.history.replaceState({}, '', window.location.pathname);
+          } catch {}
+        }
+        if(syncId){
           window.history.replaceState({}, '', window.location.pathname);
-        } catch {}
+          setTimeout(()=>connectToSync(syncId), 800);
+        }
       }, []);
 
       /* body bg */
@@ -340,6 +352,90 @@
         } catch { showToast('Share failed'); }
       };
 
+      /* ── P2P Sync ── */
+      const mergeData = (remote) => {
+        // Merge itemState — union of all keys, take most active values
+        setItemState(local => {
+          const merged = { ...local };
+          Object.keys(remote.itemState || {}).forEach(k => {
+            const l = local[k] || { checked:false, starred:false, qty:1, name:null, note:null };
+            const r = remote.itemState[k];
+            merged[k] = {
+              checked: l.checked || r.checked,
+              starred: l.starred || r.starred,
+              qty:     Math.max(l.qty||1, r.qty||1),
+              name:    l.name || r.name,
+              note:    l.note || r.note,
+            };
+          });
+          return merged;
+        });
+        // Merge customItems — union per category
+        setCustomItems(local => {
+          const merged = { ...local };
+          Object.entries(remote.customItems || {}).forEach(([cat, items]) => {
+            merged[cat] = [...new Set([...(merged[cat]||[]), ...items])];
+          });
+          return merged;
+        });
+        // Merge hiddenItems — union (respect deletions from either device)
+        setHiddenItems(local => [...new Set([...local, ...(remote.hiddenItems||[])])]);
+        // Merge catOrder — keep local, append remote-only categories
+        setCatOrder(local => {
+          const extra = (remote.catOrder||[]).filter(c=>!local.includes(c));
+          return [...local, ...extra];
+        });
+      };
+
+      const setupConnHandlers = (conn, isHost) => {
+        conn.on('open', () => {
+          setSyncState('syncing');
+          conn.send({ type:'sync', itemState, customItems, hiddenItems, catOrder });
+        });
+        conn.on('data', data => {
+          if(data.type === 'sync') {
+            mergeData(data);
+            if(isHost) conn.send({ type:'ack' });
+            setSyncState('done');
+            setTimeout(() => { setSyncModal(false); setSyncState(null); setSyncPeerId(null); peerRef.current?.destroy(); }, 2000);
+          } else if(data.type === 'ack') {
+            setSyncState('done');
+            setTimeout(() => { setSyncModal(false); setSyncState(null); setSyncPeerId(null); peerRef.current?.destroy(); }, 2000);
+          }
+        });
+        conn.on('error', ()=>setSyncState('error'));
+      };
+
+      const startSync = () => {
+        if(typeof Peer === 'undefined') { showToast('PeerJS not loaded yet, try again'); return; }
+        if(peerRef.current) peerRef.current.destroy();
+        setSyncModal(true); setSyncState('hosting'); setSyncPeerId(null);
+        const peer = new Peer();
+        peerRef.current = peer;
+        peer.on('open', id => setSyncPeerId(id));
+        peer.on('connection', conn => { connRef.current = conn; setSyncState('connected'); setupConnHandlers(conn, true); });
+        peer.on('error', ()=>setSyncState('error'));
+      };
+
+      const connectToSync = (peerId) => {
+        if(typeof Peer === 'undefined') { showToast('PeerJS not loaded yet'); return; }
+        if(peerRef.current) peerRef.current.destroy();
+        setSyncModal(true); setSyncState('connecting');
+        const peer = new Peer();
+        peerRef.current = peer;
+        peer.on('open', () => {
+          const conn = peer.connect(peerId);
+          connRef.current = conn;
+          setupConnHandlers(conn, false);
+        });
+        peer.on('error', ()=>setSyncState('error'));
+      };
+
+      const closeSync = () => {
+        setSyncModal(false); setSyncState(null); setSyncPeerId(null);
+        if(peerRef.current) { peerRef.current.destroy(); peerRef.current = null; }
+      };
+
       const showToast=msg=>{ setToast(msg); setTimeout(()=>setToast(null),2500); };
 
       const handleTitleTap=()=>{
@@ -385,6 +481,7 @@
                   <button onClick={sendList} style={hBtn(false,'#888')}>📋 COPY</button>
                   <button onClick={shareList} style={hBtn(false,'#888')}>↗ SHARE</button>
                   <button onClick={()=>setSortMode(r=>!r)} style={hBtn(sortMode,'#888')}>↕ SORT</button>
+                  <button onClick={startSync} style={hBtn(syncModal,'#888')}>⇄ SYNC</button>
                   <button onClick={()=>setTheme(t=>t==='light'?'dark':'light')} style={hBtn(theme==='dark','#888')}>{theme==='dark'?'☀️':'🌙'}</button>
                 </div>
               </div>
@@ -596,6 +693,49 @@
           {toast&&!undoItem&&(
             <div style={{position:'fixed',bottom:28,left:'50%',transform:'translateX(-50%)',background:'#111',color:'#f5f0e8',padding:'10px 20px',borderRadius:20,fontSize:13,boxShadow:'0 4px 20px rgba(0,0,0,0.35)',zIndex:200,whiteSpace:'nowrap',...mono}}>
               {toast}
+            </div>
+          )}
+
+          {/* ── SYNC MODAL ── */}
+          {syncModal&&(
+            <div style={{position:'fixed',inset:0,background:'rgba(0,0,0,0.75)',zIndex:400,display:'flex',alignItems:'center',justifyContent:'center',padding:20}}>
+              <div style={{background:'#1a1a1a',color:'#f5f0e8',borderRadius:20,padding:28,width:'100%',maxWidth:300,textAlign:'center',boxShadow:'0 8px 40px rgba(0,0,0,0.5)'}}>
+                <h2 style={{fontSize:18,fontWeight:400,marginBottom:6}}>⇄ Sync Lists</h2>
+
+                {/* Hosting — show QR */}
+                {syncState==='hosting'&&(
+                  <div>
+                    {syncPeerId?(
+                      <>
+                        <p style={{...mono,fontSize:11,color:'#888',marginBottom:14,letterSpacing:'0.04em'}}>SCAN OR SHARE THIS LINK</p>
+                        <img
+                          src={`https://chart.googleapis.com/chart?chs=180x180&cht=qr&chl=${encodeURIComponent(`${window.location.href.split('?')[0]}?sync=${syncPeerId}`)}&choe=UTF-8&chco=f5f0e8,1a1a1a`}
+                          style={{borderRadius:12,width:180,height:180,margin:'0 auto 14px',display:'block'}}
+                          alt="QR code"
+                        />
+                        <button onClick={()=>{ navigator.clipboard.writeText(`${window.location.href.split('?')[0]}?sync=${syncPeerId}`).then(()=>showToast('Link copied ✓')); }}
+                          style={{...mono,background:'#2a2a2a',color:'#c8a96e',border:'1px solid #444',borderRadius:8,padding:'8px 16px',fontSize:11,cursor:'pointer',marginBottom:12,letterSpacing:'0.05em'}}>
+                          📋 COPY LINK
+                        </button>
+                        <p style={{...mono,fontSize:11,color:'#666',letterSpacing:'0.04em'}}>Waiting for connection...</p>
+                      </>
+                    ):(
+                      <p style={{...mono,fontSize:12,color:'#888',marginTop:12}}>Setting up...</p>
+                    )}
+                  </div>
+                )}
+
+                {syncState==='connecting'&&<p style={{...mono,fontSize:12,color:'#888',margin:'16px 0'}}>Connecting to device...</p>}
+                {syncState==='connected'&&<p style={{...mono,fontSize:12,color:'#c8a96e',margin:'16px 0'}}>Connected! Syncing...</p>}
+                {syncState==='syncing'&&<p style={{...mono,fontSize:12,color:'#c8a96e',margin:'16px 0'}}>Merging lists...</p>}
+                {syncState==='done'&&<p style={{...mono,fontSize:14,color:'#4a9e4a',margin:'16px 0'}}>✓ Lists merged!</p>}
+                {syncState==='error'&&<p style={{...mono,fontSize:12,color:'#e07070',margin:'16px 0'}}>Connection failed. Try again.</p>}
+
+                <button onClick={closeSync}
+                  style={{...mono,background:'transparent',color:'#888',border:'1px solid #333',borderRadius:8,padding:'8px 20px',fontSize:11,cursor:'pointer',marginTop:8,letterSpacing:'0.05em'}}>
+                  {syncState==='done'?'CLOSE':'CANCEL'}
+                </button>
+              </div>
             </div>
           )}
 
