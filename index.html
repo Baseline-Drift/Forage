@@ -235,7 +235,7 @@
           const { defaults=[], customs=[] } = allCategories[cat]||{};
           const unchecked = [...defaults,...customs].filter(item => {
             const is = getIS(`${cat}::${item}`);
-            return mode==='week' ? is.starred && !is.checked : !is.checked;
+            return mode==='faves' ? is.starred && !is.checked : !is.checked;
           });
           if (unchecked.length > 0) {
             lines.push(cat);
@@ -280,7 +280,7 @@
       /* visibility */
       const itemVisible = (cat, item) => {
         const is = getIS(`${cat}::${item}`);
-        if (mode==='week' && !is.starred) return false;
+        if (mode==='faves' && !is.starred) return false;
         if (hideChecked && is.checked) return false;
         const displayName = is.name || item;
         if (search && !displayName.toLowerCase().includes(search.toLowerCase())) return false;
@@ -303,14 +303,14 @@
                   <h1 style={{ fontSize:24, fontWeight:400, letterSpacing:'0.02em', color:'#f5f0e8' }}>🌿 Forage</h1>
                   <p style={{ ...mono, fontSize:11, color:'#666', marginTop:2, letterSpacing:'0.04em' }}>
                     {checkedCount}/{totalCount} · {pct}%
-                    {mode==='week' && <span style={{ color:'#c8a96e', marginLeft:8 }}>⭐ {starredKeys.length}</span>}
+                    {mode==='faves' && <span style={{ color:'#c8a96e', marginLeft:8 }}>⭐ {starredKeys.length}</span>}
                   </p>
                 </div>
                 <div style={{ display:'flex', gap:5, flexWrap:'wrap', justifyContent:'flex-end' }}>
                   {[
-                    { label: mode==='week' ? '⭐ WEEK' : 'ALL',  active: mode==='week',  onClick: ()=>setMode(m=>m==='all'?'week':'all') },
-                    { label: allChecked ? '☐ NONE' : '☑ ALL',   active: allChecked,     onClick: toggleAll },
-                    { label: '⬆ SEND',   active: false, onClick: sendList },
+                    { label: mode==='faves' ? '⭐ FAVES' : '☆ FAVES',  active: mode==='faves',  onClick: ()=>setMode(m=>m==='all'?'faves':'all') },
+                    { label: allChecked ? '✕ NONE' : '+ SELECT',   active: allChecked,     onClick: toggleAll },
+                    { label: '📋 COPY',   active: false, onClick: sendList },
                     { label: '↗ SHARE',  active: false, onClick: shareApp },
                     { label: '↕ SORT',   active: sortMode, onClick: ()=>setSortMode(r=>!r) },
                   ].map(btn => (
