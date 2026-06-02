@@ -3,37 +3,36 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="theme-color" content="#1a2e1a" />
   <link rel="apple-touch-icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxOTIgMTkyIiB3aWR0aD0iMTkyIiBoZWlnaHQ9IjE5MiI+CiAgPHJlY3Qgd2lkdGg9IjE5MiIgaGVpZ2h0PSIxOTIiIHJ4PSIzOCIgZmlsbD0iIzFhMmUxYSIvPgogIDxwYXRoIGQ9Ik05NiAyOCBDOTYgMjgsIDE1NSA2MiwgMTU1IDEwOCBDMTU1IDE0MiwgMTI4IDE2MiwgOTYgMTY4IEM2NCAxNjIsIDM3IDE0MiwgMzcgMTA4IEMzNyA2MiwgOTYgMjgsIDk2IDI4WiIgZmlsbD0iIzJkNWMyZCIgb3BhY2l0eT0iMC41Ii8+CiAgPHBhdGggZD0iTTk2IDQwIEM5NiA0MCwgMTQ4IDcwLCAxNDggMTA4IEMxNDggMTM4LCAxMjQgMTU1LCA5NiAxNjAgQzY4IDE1NSwgNDQgMTM4LCA0NCAxMDggQzQ0IDcwLCA5NiA0MCwgOTYgNDBaIiBmaWxsPSIjNGE5ZTRhIi8+CiAgPGxpbmUgeDE9Ijk2IiB5MT0iNDAiIHgyPSI5NiIgeTI9IjE2MCIgc3Ryb2tlPSIjMWEzZDFhIiBzdHJva2Utd2lkdGg9IjMiLz4KICA8cGF0aCBkPSJNOTYgNzIgUTc4IDgyLCA2OCAxMDAiIHN0cm9rZT0iIzFhM2QxYSIgc3Ryb2tlLXdpZHRoPSIyIiBmaWxsPSJub25lIi8+CiAgPHBhdGggZD0iTTk2IDkyIFExMTQgMTAyLCAxMjQgMTIwIiBzdHJva2U9IiMxYTNkMWEiIHN0cm9rZS13aWR0aD0iMiIgZmlsbD0ibm9uZSIvPgogIDxwYXRoIGQ9Ik05NiA1NSBRODAgNjMsIDc0IDc4IiBzdHJva2U9IiMxYTNkMWEiIHN0cm9rZS13aWR0aD0iMiIgZmlsbD0ibm9uZSIvPgogIDxwYXRoIGQ9Ik05NiA1NSBRMTEyIDYzLCAxMTggNzgiIHN0cm9rZT0iIzFhM2QxYSIgc3Ryb2tlLXdpZHRoPSIyIiBmaWxsPSJub25lIi8+Cjwvc3ZnPgo=">
-  <link rel="manifest" href="data:application/manifest+json;base64,ewogICJuYW1lIjogIkZvcmFnZSIsCiAgInNob3J0X25hbWUiOiAiRm9yYWdlIiwKICAiZGVzY3JpcHRpb24iOiAiWW91ciBncm9jZXJ5IGxpc3QiLAogICJzdGFydF91cmwiOiAiLiIsCiAgImRpc3BsYXkiOiAic3RhbmRhbG9uZSIsCiAgImJhY2tncm91bmRfY29sb3IiOiAiIzFhMWExYSIsCiAgInRoZW1lX2NvbG9yIjogIiMxYTFhMWEiLAogICJpY29ucyI6IFsKICAgIHsgInNyYyI6ICJkYXRhOmltYWdlL3N2Zyt4bWw7YmFzZTY0LFBITjJaeUI0Yld4dWN6MGlhSFIwY0RvdkwzZDNkeTUzTXk1dmNtY3ZNakF3TUM5emRtY2lJSFpwWlhkQ2IzZzlJakFnTUNBeE9USWdNVGt5SWlCM2FXUjBhRDBpTVRreUlpQm9aV2xuYUhROUlqRTVNaUkrQ2lBZ1BISmxZM1FnZDJsa2RHZzlJakU1TWlJZ2FHVnBaMmgwUFNJeE9USWlJSEo0UFNJek9DSWdabWxzYkQwaUl6RmhNbVV4WVNJdlBnb2dJRHh3WVhSb0lHUTlJazA1TmlBeU9DQkRPVFlnTWpnc0lERTFOU0EyTWl3Z01UVTFJREV3T0NCRE1UVTFJREUwTWl3Z01USTRJREUyTWl3Z09UWWdNVFk0SUVNMk5DQXhOaklzSURNM0lERTBNaXdnTXpjZ01UQTRJRU16TnlBMk1pd2dPVFlnTWpnc0lEazJJREk0V2lJZ1ptbHNiRDBpSXpKa05XTXlaQ0lnYjNCaFkybDBlVDBpTUM0MUlpOCtDaUFnUEhCaGRHZ2daRDBpVFRrMklEUXdJRU01TmlBME1Dd2dNVFE0SURjd0xDQXhORGdnTVRBNElFTXhORGdnTVRNNExDQXhNalFnTVRVMUxDQTVOaUF4TmpBZ1F6WTRJREUxTlN3Z05EUWdNVE00TENBME5DQXhNRGdnUXpRMElEY3dMQ0E1TmlBME1Dd2dPVFlnTkRCYUlpQm1hV3hzUFNJak5HRTVaVFJoSWk4K0NpQWdQR3hwYm1VZ2VERTlJamsySWlCNU1UMGlOREFpSUhneVBTSTVOaUlnZVRJOUlqRTJNQ0lnYzNSeWIydGxQU0lqTVdFelpERmhJaUJ6ZEhKdmEyVXRkMmxrZEdnOUlqTWlMejRLSUNBOGNHRjBhQ0JrUFNKTk9UWWdOeklnVVRjNElEZ3lMQ0EyT0NBeE1EQWlJSE4wY205clpUMGlJekZoTTJReFlTSWdjM1J5YjJ0bExYZHBaSFJvUFNJeUlpQm1hV3hzUFNKdWIyNWxJaTgrQ2lBZ1BIQmhkR2dnWkQwaVRUazJJRGt5SUZFeE1UUWdNVEF5TENBeE1qUWdNVEl3SWlCemRISnZhMlU5SWlNeFlUTmtNV0VpSUhOMGNtOXJaUzEzYVdSMGFEMGlNaUlnWm1sc2JEMGlibTl1WlNJdlBnb2dJRHh3WVhSb0lHUTlJazA1TmlBMU5TQlJPREFnTmpNc0lEYzBJRGM0SWlCemRISnZhMlU5SWlNeFlUTmtNV0VpSUhOMGNtOXJaUzEzYVdSMGFEMGlNaUlnWm1sc2JEMGlibTl1WlNJdlBnb2dJRHh3WVhSb0lHUTlJazA1TmlBMU5TQlJNVEV5SURZekxDQXhNVGdnTnpnaUlITjBjbTlyWlQwaUl6RmhNMlF4WVNJZ2MzUnliMnRsTFhkcFpIUm9QU0l5SWlCbWFXeHNQU0p1YjI1bElpOCtDand2YzNablBnbz0iLCAic2l6ZXMiOiAiMTkyeDE5MiIsICJ0eXBlIjogImltYWdlL3N2Zyt4bWwiIH0KICBdCn0K">
-  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-title" content="Forage" />
   <title>Forage</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    body { background: #faf9f6; font-family: 'DM Serif Display', Georgia, serif; -webkit-tap-highlight-color: transparent; overscroll-behavior: none; }
-    input, select, button { font-family: inherit; }
+    body { -webkit-tap-highlight-color: transparent; overscroll-behavior: none; }
+    input, select, button, textarea { font-family: inherit; }
     ::-webkit-scrollbar { width: 0; }
-
     @keyframes popIn {
       0%   { transform: translateX(-50%) scale(0.7); opacity: 0; }
       70%  { transform: translateX(-50%) scale(1.05); opacity: 1; }
       100% { transform: translateX(-50%) scale(1); opacity: 1; }
     }
+    @keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+    .suggestion-btn:active { opacity: 0.6; }
   </style>
 </head>
 <body>
   <div id="root"></div>
-
   <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
   <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-
   <script type="text/babel">
-    const { useState, useEffect, useRef } = React;
+    const { useState, useEffect, useRef, useCallback } = React;
 
-    /* ── Grocery data ─────────────────────────────── */
+    /* ── Data ─────────────────────────────────────── */
     const GROCERY_DATA = {
       '🥦 Produce':       ['Tomatoes','Cucumber','Baby cos lettuce','Avocados','Onion small','Red onion','Red capsicum','Yellow capsicum','Lemons','Limes','Coriander','Potato'],
       '🍓 Fruit':         ['Bananas','Apples Pink Lady','Raspberries','Strawberries','Pears'],
@@ -56,28 +55,65 @@
 
     /* ── Storage ──────────────────────────────────── */
     const K = {
-      state:    'forage-state-v1',
-      custom:   'forage-custom-v1',
-      hidden:   'forage-hidden-v1',
-      order:    'forage-order-v1',
-      lastShop: 'forage-last-v1',
+      state:      'forage-state-v1',
+      custom:     'forage-custom-v1',
+      hidden:     'forage-hidden-v1',
+      order:      'forage-order-v1',
+      lastShop:   'forage-last-v1',
+      freq:       'forage-freq-v1',
+      theme:      'forage-theme-v1',
+      customCats: 'forage-cats-v1',
     };
     const load = (key, fb) => { try { const v = localStorage.getItem(key); return v ? JSON.parse(v) : fb; } catch { return fb; } };
     const save = (key, val) => { try { localStorage.setItem(key, JSON.stringify(val)); } catch {} };
 
+    /* ── Themes ───────────────────────────────────── */
+    const THEMES = {
+      light: {
+        pageBg: '#faf9f6', headerBg: '#111', headerText: '#f5f0e8',
+        sub: '#666', searchBg: '#1e1e1e', searchText: '#f5f0e8',
+        selBg: '#1e1e1e', selText: '#888', catBorder: '#e8e3da',
+        catLabel: '#7a6a5a', itemBorder: '#f2ede6', itemText: '#2a1a0a',
+        itemDone: '#bbb', cardBg: '#fff', inputBg: '#fff',
+        inputBorder: '#e8e3da', noteText: '#8a7a6a', noteBg: '#f5f0e8',
+        restoreBtn: '#bbb', resetBtn: '#bbb', shadow: 'rgba(0,0,0,0.08)',
+      },
+      dark: {
+        pageBg: '#161616', headerBg: '#0d0d0d', headerText: '#f0ece4',
+        sub: '#505050', searchBg: '#222', searchText: '#f0ece4',
+        selBg: '#222', selText: '#606060', catBorder: '#282828',
+        catLabel: '#808070', itemBorder: '#202020', itemText: '#ddd8d0',
+        itemDone: '#484848', cardBg: '#1e1e1e', inputBg: '#1e1e1e',
+        inputBorder: '#303030', noteText: '#707060', noteBg: '#1e1e1e',
+        restoreBtn: '#505050', resetBtn: '#505050', shadow: 'rgba(0,0,0,0.3)',
+      },
+    };
+
+    /* ── Easter egg & profanity ───────────────────── */
     const ACE_LINES = [
       "/\\_/\\\n( ◕_◕ )\n > 🌮 <\n\nACE FOUND THE NACHOS.\nSHE IS NOT SHARING.",
       "/\\_/\\\n( ◉_◉ )\n > 🐟 <\n\nACE IS EATING TUNA.\nDIRECTLY FROM THE TIN.",
       "/\\_/\\\n( >_< )\n > 🍌 <\n\nACE TRIED A BANANA.\nSHE REGRETS NOTHING.",
       "/\\_/\\\n( ᵕ_ᵕ )\n > 🧀 <\n\nACE LOCATED THE CHEESE.\nIT IS HERS NOW.",
     ];
+    const ACE_DISAPPOINTED = [
+      "/\\_/\\\n( ≖_≖ )\n > 🙅 <\n\nACE IS DISAPPOINTED.\nTHIS IS A GROCERY LIST.",
+      "/\\_/\\\n( -.- )\n > 🙅 <\n\nACE STARES AT YOU.\nYOU KNOW WHAT YOU DID.",
+      "/\\_/\\\n( ._. )\n > 🙅 <\n\nTHIS IS FOR GROCERIES.\nBEHAVE YOURSELF.",
+    ];
+    const PROFANITY = ['shit','fuck','cunt','ass','dick','bitch','piss','cock','pussy','bastard','wank','arse'];
+    const hasProfanity = t => PROFANITY.some(w => t.toLowerCase().includes(w));
 
-    /* ── Main App ─────────────────────────────────── */
+    /* ── App ──────────────────────────────────────── */
     function App() {
+      /* persistent */
       const [itemState,   setItemState]   = useState(() => load(K.state,  {}));
       const [customItems, setCustomItems] = useState(() => load(K.custom, {}));
       const [hiddenItems, setHiddenItems] = useState(() => load(K.hidden, []));
       const [lastShop,    setLastShop]    = useState(() => load(K.lastShop, null));
+      const [freqItems,   setFreqItems]   = useState(() => load(K.freq, {}));
+      const [theme,       setTheme]       = useState(() => load(K.theme, 'light'));
+      const [customCats,  setCustomCats]  = useState(() => load(K.customCats, []));
       const [catOrder, setCatOrder] = useState(() => {
         const saved = load(K.order, null);
         if (!saved) return DEFAULT_ORDER;
@@ -85,393 +121,411 @@
         return [...saved, ...extra];
       });
 
-      const [search,      setSearch]      = useState('');
-      const [filterCat,   setFilterCat]   = useState('All');
-      const [hideChecked, setHideChecked] = useState(false);
-      const [mode,        setMode]        = useState('all');
-      const [openCats,    setOpenCats]    = useState(() => Object.fromEntries(DEFAULT_ORDER.map(c => [c, true])));
-      const [editingCat,  setEditingCat]  = useState(null);
-      const [newItemText, setNewItemText] = useState('');
-      const [sortMode,    setSortMode]    = useState(false);
-      const [editQtyKey,  setEditQtyKey]  = useState(null);
-      const [editNameKey, setEditNameKey] = useState(null);
-      const [editNameVal, setEditNameVal] = useState('');
-      const [toast,       setToast]       = useState(null);
-      const [undoItem,    setUndoItem]    = useState(null);
-      const [holdKey,     setHoldKey]     = useState(null);
-      const [aceMsg,      setAceMsg]      = useState(null);
-      const [titleTaps,   setTitleTaps]   = useState(0);
+      /* ui */
+      const [search,       setSearch]       = useState('');
+      const [filterCat,    setFilterCat]    = useState('All');
+      const [hideChecked,  setHideChecked]  = useState(false);
+      const [mode,         setMode]         = useState('all');
+      const [openCats,     setOpenCats]     = useState(() => Object.fromEntries(DEFAULT_ORDER.map(c=>[c,true])));
+      const [editingCat,   setEditingCat]   = useState(null);
+      const [newItemText,  setNewItemText]  = useState('');
+      const [sortMode,     setSortMode]     = useState(false);
+      const [editQtyKey,   setEditQtyKey]   = useState(null);
+      const [editNameKey,  setEditNameKey]  = useState(null);
+      const [editNameVal,  setEditNameVal]  = useState('');
+      const [editNoteKey,  setEditNoteKey]  = useState(null);
+      const [editNoteVal,  setEditNoteVal]  = useState('');
+      const [toast,        setToast]        = useState(null);
+      const [undoItem,     setUndoItem]     = useState(null);
+      const [holdKey,      setHoldKey]      = useState(null);
+      const [aceMsg,       setAceMsg]       = useState(null);
+      const [titleTaps,    setTitleTaps]    = useState(0);
+      const [addingCat,    setAddingCat]    = useState(false);
+      const [newCatName,   setNewCatName]   = useState('');
+      const [suggestions,  setSuggestions]  = useState([]);
 
       const holdTimer  = useRef(null);
       const undoTimer  = useRef(null);
       const nameTimer  = useRef(null);
       const titleTimer = useRef(null);
 
-      useEffect(() => save(K.state,    itemState),   [itemState]);
-      useEffect(() => save(K.custom,   customItems), [customItems]);
-      useEffect(() => save(K.hidden,   hiddenItems), [hiddenItems]);
-      useEffect(() => save(K.order,    catOrder),    [catOrder]);
-      useEffect(() => { if (lastShop) save(K.lastShop, lastShop); }, [lastShop]);
-      useEffect(() => () => {
-        clearTimeout(holdTimer.current);
-        clearTimeout(undoTimer.current);
-        clearTimeout(nameTimer.current);
-        clearTimeout(titleTimer.current);
-      }, []);
+      const T = THEMES[theme];
+      const mono = { fontFamily: "'DM Mono', monospace" };
 
-      /* derived categories */
-      const allCategories = {};
-      catOrder.forEach(cat => {
-        const defaults = (GROCERY_DATA[cat] || []).filter(item => !hiddenItems.includes(`${cat}::${item}`));
-        allCategories[cat] = { defaults, customs: customItems[cat] || [] };
+      /* persist */
+      useEffect(()=>save(K.state,      itemState),   [itemState]);
+      useEffect(()=>save(K.custom,     customItems), [customItems]);
+      useEffect(()=>save(K.hidden,     hiddenItems), [hiddenItems]);
+      useEffect(()=>save(K.order,      catOrder),    [catOrder]);
+      useEffect(()=>save(K.freq,       freqItems),   [freqItems]);
+      useEffect(()=>save(K.theme,      theme),       [theme]);
+      useEffect(()=>save(K.customCats, customCats),  [customCats]);
+      useEffect(()=>{ if(lastShop) save(K.lastShop, lastShop); }, [lastShop]);
+      useEffect(()=>()=>{ clearTimeout(holdTimer.current); clearTimeout(undoTimer.current); clearTimeout(nameTimer.current); clearTimeout(titleTimer.current); },[]);
+
+      /* tab badge */
+      useEffect(()=>{
+        const allK = catOrder.flatMap(cat=>{ const {defaults=[],customs=[]}=allCats[cat]||{}; return [...defaults,...customs].map(i=>`${cat}::${i}`); });
+        const rem = allK.length - allK.filter(k=>getIS(k).checked).length;
+        document.title = rem > 0 ? `(${rem}) Forage` : 'Forage';
       });
 
-      /* item state */
-      const getIS    = key => itemState[key] || { checked: false, starred: false, qty: 1, name: null };
-      const updateIS = (key, u) => setItemState(p => ({ ...p, [key]: { ...getIS(key), ...u } }));
-      const toggleCheck = key => updateIS(key, { checked: !getIS(key).checked });
-      const toggleStar  = key => updateIS(key, { starred: !getIS(key).starred });
-      const setQty      = (key, qty) => updateIS(key, { qty: Math.max(1, qty) });
+      /* parse shared URL on load */
+      useEffect(()=>{
+        const params = new URLSearchParams(window.location.search);
+        const enc = params.get('list');
+        if (!enc) return;
+        try {
+          const keys = JSON.parse(atob(enc));
+          setItemState(p=>{ const n={...p}; keys.forEach(k=>{n[k]={...(n[k]||{checked:false,qty:1}),starred:true};}); return n; });
+          setMode('faves');
+          showToast('Shared list loaded ✓');
+          window.history.replaceState({}, '', window.location.pathname);
+        } catch {}
+      }, []);
 
-      /* totals */
-      const allKeys      = catOrder.flatMap(cat => { const { defaults=[], customs=[] } = allCategories[cat]||{}; return [...defaults,...customs].map(item=>`${cat}::${item}`); });
+      /* body bg */
+      useEffect(()=>{ document.body.style.background = T.pageBg; document.body.style.fontFamily = "'DM Serif Display', Georgia, serif"; }, [theme]);
+
+      /* derived */
+      const allCats = {};
+      catOrder.forEach(cat=>{
+        const defaults = (GROCERY_DATA[cat]||[]).filter(item=>!hiddenItems.includes(`${cat}::${item}`));
+        allCats[cat] = { defaults, customs: customItems[cat]||[], isCustom: customCats.includes(cat) };
+      });
+
+      const getIS    = k => itemState[k]||{checked:false,starred:false,qty:1,name:null,note:null};
+      const updateIS = (k,u)=>setItemState(p=>({...p,[k]:{...getIS(k),...u}}));
+
+      const allKeys      = catOrder.flatMap(cat=>{ const{defaults=[],customs=[]}=allCats[cat]||{}; return [...defaults,...customs].map(i=>`${cat}::${i}`); });
       const totalCount   = allKeys.length;
-      const checkedCount = allKeys.filter(k => getIS(k).checked).length;
-      const starredKeys  = allKeys.filter(k => getIS(k).starred);
-      const pct          = totalCount > 0 ? Math.round((checkedCount/totalCount)*100) : 0;
-      const allChecked   = checkedCount === totalCount;
+      const checkedCount = allKeys.filter(k=>getIS(k).checked).length;
+      const starredKeys  = allKeys.filter(k=>getIS(k).starred);
+      const pct          = totalCount>0?Math.round((checkedCount/totalCount)*100):0;
+      const allChecked   = totalCount>0&&checkedCount===totalCount;
 
-      /* select all / deselect all */
-      const toggleAll = () => {
-        if (allChecked) {
-          setItemState(p => { const n={...p}; Object.keys(n).forEach(k=>{n[k]={...n[k],checked:false};}); return n; });
+      /* handlers */
+      const toggleCheck = k => updateIS(k,{checked:!getIS(k).checked});
+      const toggleStar  = k => updateIS(k,{starred:!getIS(k).starred});
+      const setQty      = (k,q)=>updateIS(k,{qty:Math.max(1,q)});
+
+      const toggleAll = ()=>{
+        if(allChecked){
+          setItemState(p=>{ const n={...p}; Object.keys(n).forEach(k=>{n[k]={...n[k],checked:false};}); return n; });
         } else {
-          const updates = {};
-          allKeys.forEach(k => { updates[k] = { ...getIS(k), checked: true }; });
-          setItemState(p => ({ ...p, ...updates }));
+          const u={}; allKeys.forEach(k=>{u[k]={...getIS(k),checked:true};}); setItemState(p=>({...p,...u}));
         }
       };
 
-      /* add item */
-      const addItem = cat => {
+      const addItem = cat=>{
         const text = newItemText.trim();
-        if (!text) return;
-        setCustomItems(p => ({ ...p, [cat]: [...(p[cat] || []), text] }));
-        setNewItemText('');
-        setEditingCat(null);
+        if(!text) return;
+        if(hasProfanity(text)){ setAceMsg(ACE_DISAPPOINTED[Math.floor(Math.random()*ACE_DISAPPOINTED.length)]); return; }
+        setCustomItems(p=>({...p,[cat]:[...(p[cat]||[]),text]}));
+        setFreqItems(p=>({...p,[text]:(p[text]||0)+1}));
+        setNewItemText(''); setSuggestions([]); setEditingCat(null);
         showToast('Item added ✓');
       };
 
-      /* delete with undo */
-      const performDelete = (cat, item, isCustom) => {
-        const key = `${cat}::${item}`;
-        setUndoItem({ cat, item, isCustom, itemStateSnap: itemState[key], customSnap: isCustom ? [...(customItems[cat] || [])] : null, hiddenSnap: [...hiddenItems] });
-        if (isCustom) {
-          setCustomItems(p => ({ ...p, [cat]: (p[cat] || []).filter(i => i !== item) }));
-        } else {
-          setHiddenItems(p => [...p, key]);
-        }
-        setItemState(p => { const n = { ...p }; delete n[key]; return n; });
+      const handleNewItemChange = val=>{
+        setNewItemText(val);
+        if(val.trim().length>1){
+          const matches = Object.entries(freqItems)
+            .filter(([name])=>name.toLowerCase().includes(val.toLowerCase()))
+            .sort((a,b)=>b[1]-a[1]).slice(0,5).map(([name])=>name);
+          setSuggestions(matches);
+        } else { setSuggestions([]); }
+      };
+
+      const performDelete=(cat,item,isCustom)=>{
+        const key=`${cat}::${item}`;
+        setUndoItem({cat,item,isCustom,itemStateSnap:itemState[key],customSnap:isCustom?[...(customItems[cat]||[])]:null,hiddenSnap:[...hiddenItems]});
+        if(isCustom) setCustomItems(p=>({...p,[cat]:(p[cat]||[]).filter(i=>i!==item)}));
+        else setHiddenItems(p=>[...p,key]);
+        setItemState(p=>{const n={...p};delete n[key];return n;});
         clearTimeout(undoTimer.current);
-        undoTimer.current = setTimeout(() => setUndoItem(null), 5000);
+        undoTimer.current=setTimeout(()=>setUndoItem(null),5000);
       };
 
-      const undoDelete = () => {
-        if (!undoItem) return;
-        clearTimeout(undoTimer.current);
-        const { cat, item, isCustom, itemStateSnap, customSnap, hiddenSnap } = undoItem;
-        if (isCustom) setCustomItems(p => ({ ...p, [cat]: customSnap }));
-        else setHiddenItems(hiddenSnap);
-        if (itemStateSnap) setItemState(p => ({ ...p, [`${cat}::${item}`]: itemStateSnap }));
-        setUndoItem(null);
-        showToast('Restored ✓');
+      const undoDelete=()=>{
+        if(!undoItem) return; clearTimeout(undoTimer.current);
+        const{cat,item,isCustom,itemStateSnap,customSnap,hiddenSnap}=undoItem;
+        if(isCustom) setCustomItems(p=>({...p,[cat]:customSnap})); else setHiddenItems(hiddenSnap);
+        if(itemStateSnap) setItemState(p=>({...p,[`${cat}::${item}`]:itemStateSnap}));
+        setUndoItem(null); showToast('Restored ✓');
       };
 
-      /* hold to delete */
-      const startHold = (cat, item, isCustom) => {
-        const key = `${cat}::${item}`;
-        setHoldKey(key);
-        holdTimer.current = setTimeout(() => { setHoldKey(null); performDelete(cat, item, isCustom); }, 600);
-      };
-      const cancelHold = () => { clearTimeout(holdTimer.current); setHoldKey(null); };
+      const startHold=(cat,item,isCustom)=>{ setHoldKey(`${cat}::${item}`); holdTimer.current=setTimeout(()=>{setHoldKey(null);performDelete(cat,item,isCustom);},600); };
+      const cancelHold=()=>{ clearTimeout(holdTimer.current); setHoldKey(null); };
 
-      /* hold to edit name */
-      const startNameEdit = (key, currentName) => {
-        setEditNameKey(key);
-        setEditNameVal(currentName);
-      };
-      const saveNameEdit = () => {
-        if (editNameVal.trim()) updateIS(editNameKey, { name: editNameVal.trim() });
-        setEditNameKey(null);
-        setEditNameVal('');
-      };
+      const startNameEdit=(k,cur)=>{ setEditNameKey(k); setEditNameVal(cur); };
+      const saveNameEdit=()=>{ if(editNameVal.trim()) updateIS(editNameKey,{name:editNameVal.trim()}); setEditNameKey(null); setEditNameVal(''); };
 
-      /* reorder */
-      const moveCat = (cat, dir) => {
-        setCatOrder(p => {
-          const idx = p.indexOf(cat), next = dir === 'up' ? idx - 1 : idx + 1;
-          if (next < 0 || next >= p.length) return p;
-          const o = [...p]; [o[idx], o[next]] = [o[next], o[idx]]; return o;
-        });
+      const startNoteEdit=(k)=>{ setEditNoteKey(k); setEditNoteVal(getIS(k).note||''); };
+      const saveNoteEdit=()=>{ updateIS(editNoteKey,{note:editNoteVal.trim()||null}); setEditNoteKey(null); };
+
+      const moveCat=(cat,dir)=>{ setCatOrder(p=>{ const idx=p.indexOf(cat),next=dir==='up'?idx-1:idx+1; if(next<0||next>=p.length) return p; const o=[...p];[o[idx],o[next]]=[o[next],o[idx]];return o; }); };
+
+      const deleteCustomCat=(cat)=>{
+        setCatOrder(p=>p.filter(c=>c!==cat));
+        setCustomCats(p=>p.filter(c=>c!==cat));
+        setCustomItems(p=>{ const n={...p}; delete n[cat]; return n; });
+        showToast('Category removed');
       };
 
-      /* reset */
-      const reset = () => {
-        const checked = allKeys.filter(k => getIS(k).checked);
-        if (checked.length > 0) setLastShop(checked);
-        setItemState(p => { const n={}; Object.entries(p).forEach(([k,v])=>{n[k]={...v,checked:false};}); return n; });
-        showToast(checked.length > 0 ? 'Reset · last shop saved ✓' : 'List reset');
+      const addCustomCat=()=>{
+        const name = newCatName.trim();
+        if(!name) return;
+        setCatOrder(p=>[...p,name]);
+        setCustomCats(p=>[...p,name]);
+        setOpenCats(p=>({...p,[name]:true}));
+        setNewCatName(''); setAddingCat(false);
+        showToast('Category added ✓');
       };
 
-      /* recall */
-      const recallLastShop = () => {
-        if (!lastShop) return;
-        setItemState(p => { const n={...p}; lastShop.forEach(k=>{n[k]={...(n[k]||{starred:false,qty:1}),checked:true};}); return n; });
+      const reset=()=>{
+        const checked=allKeys.filter(k=>getIS(k).checked);
+        if(checked.length>0) setLastShop(checked);
+        setItemState(p=>{ const n={}; Object.entries(p).forEach(([k,v])=>{n[k]={...v,checked:false};}); return n; });
+        showToast(checked.length>0?'Reset · last shop saved ✓':'List reset');
+      };
+
+      const recallLastShop=()=>{
+        if(!lastShop) return;
+        setItemState(p=>{ const n={...p}; lastShop.forEach(k=>{n[k]={...(n[k]||{starred:false,qty:1}),checked:true};}); return n; });
         showToast('Last shop recalled ✓');
       };
 
-      /* send list (copy as text) */
-      const sendList = () => {
-        const lines = ['🌿 Forage\n'];
-        catOrder.forEach(cat => {
-          const { defaults=[], customs=[] } = allCategories[cat]||{};
-          const unchecked = [...defaults,...customs].filter(item => {
-            const is = getIS(`${cat}::${item}`);
-            return mode==='faves' ? is.starred && !is.checked : !is.checked;
-          });
-          if (unchecked.length > 0) {
-            lines.push(cat);
-            unchecked.forEach(item => {
-              const is  = getIS(`${cat}::${item}`);
-              const name = is.name || item;
-              const qty  = is.qty || 1;
-              lines.push(`  • ${name}${qty>1?` ×${qty}`:''}`);
-            });
-            lines.push('');
-          }
+      const sendList=()=>{
+        const lines=['🌿 Forage\n'];
+        catOrder.forEach(cat=>{
+          const{defaults=[],customs=[]}=allCats[cat]||{};
+          const unchecked=[...defaults,...customs].filter(item=>{ const is=getIS(`${cat}::${item}`); return mode==='faves'?is.starred&&!is.checked:!is.checked; });
+          if(unchecked.length>0){ lines.push(cat); unchecked.forEach(item=>{ const is=getIS(`${cat}::${item}`); const nm=is.name||item; const q=is.qty||1; lines.push(`  • ${nm}${q>1?` ×${q}`:''}`+(is.note?` (${is.note})`:'') ); }); lines.push(''); }
         });
         navigator.clipboard.writeText(lines.join('\n')).then(()=>showToast('List copied ✓')).catch(()=>showToast('Copy failed'));
       };
 
-      /* share app url */
-      const shareApp = () => {
-        const url = window.location.href;
-        if (navigator.share) {
-          navigator.share({ title: 'Forage', text: 'My grocery list app', url }).catch(()=>{});
-        } else {
-          navigator.clipboard.writeText(url).then(()=>showToast('Link copied ✓')).catch(()=>showToast('Copy failed'));
-        }
+      const shareList=()=>{
+        if(starredKeys.length===0){ showToast('Star items to share ⭐'); return; }
+        try {
+          const enc = btoa(JSON.stringify(starredKeys));
+          const url = `${window.location.href.split('?')[0]}?list=${enc}`;
+          if(navigator.share){ navigator.share({title:'Forage',text:'My grocery list',url}).catch(()=>{}); }
+          else { navigator.clipboard.writeText(url).then(()=>showToast('Share link copied ✓')).catch(()=>showToast('Copy failed')); }
+        } catch { showToast('Share failed'); }
       };
 
-      /* title tap easter egg */
-      const handleTitleTap = () => {
-        const next = titleTaps + 1;
-        setTitleTaps(next);
-        clearTimeout(titleTimer.current);
-        if (next >= 7) {
-          setTitleTaps(0);
-          setAceMsg(ACE_LINES[Math.floor(Math.random() * ACE_LINES.length)]);
-        } else {
-          titleTimer.current = setTimeout(() => setTitleTaps(0), 1500);
-        }
+      const showToast=msg=>{ setToast(msg); setTimeout(()=>setToast(null),2500); };
+
+      const handleTitleTap=()=>{
+        const next=titleTaps+1; setTitleTaps(next); clearTimeout(titleTimer.current);
+        if(next>=7){ setTitleTaps(0); setAceMsg(ACE_LINES[Math.floor(Math.random()*ACE_LINES.length)]); }
+        else { titleTimer.current=setTimeout(()=>setTitleTaps(0),1500); }
       };
 
-      /* toast */
-      const showToast = msg => { setToast(msg); setTimeout(()=>setToast(null), 2500); };
-
-      /* visibility */
-      const itemVisible = (cat, item) => {
-        const is = getIS(`${cat}::${item}`);
-        if (mode==='faves' && !is.starred) return false;
-        if (hideChecked && is.checked) return false;
-        const displayName = is.name || item;
-        if (search && !displayName.toLowerCase().includes(search.toLowerCase())) return false;
-        if (filterCat!=='All' && cat!==filterCat) return false;
+      const itemVisible=(cat,item)=>{
+        const is=getIS(`${cat}::${item}`);
+        if(mode==='faves'&&!is.starred) return false;
+        if(hideChecked&&is.checked) return false;
+        const nm=is.name||item;
+        if(search&&!nm.toLowerCase().includes(search.toLowerCase())) return false;
+        if(filterCat!=='All'&&cat!==filterCat) return false;
         return true;
       };
 
-      const mono = { fontFamily: "'DM Mono', monospace" };
+      /* ── button style helpers ── */
+      const hBtn=(active,ac='#c8a96e')=>({...mono,background:active?ac:'transparent',border:`1px solid ${active?ac:'#444'}`,color:active?(ac==='#c8a96e'?'#111':'#f5f0e8'):'#888',borderRadius:6,padding:'5px 9px',fontSize:10,cursor:'pointer',letterSpacing:'0.05em',whiteSpace:'nowrap'});
 
-      /* ── Render ── */
+      /* ═══════════════════════════════════════════════
+         RENDER
+         ═══════════════════════════════════════════════ */
       return (
-        <div style={{ minHeight:'100vh', background:'#faf9f6', paddingBottom:80 }}>
+        <div style={{minHeight:'100vh',background:T.pageBg,paddingBottom:80,fontFamily:"'DM Serif Display',Georgia,serif",transition:'background 0.3s'}}>
 
-          {/* Header */}
-          <div style={{ background:'#111', color:'#f5f0e8', position:'sticky', top:0, zIndex:100, boxShadow:'0 2px 20px rgba(0,0,0,0.3)' }}>
-            <div style={{ maxWidth:540, margin:'0 auto', padding:'16px 16px 14px' }}>
+          {/* ── HEADER ── */}
+          <div style={{background:T.headerBg,color:T.headerText,position:'sticky',top:0,zIndex:100,boxShadow:`0 2px 20px ${T.shadow}`}}>
+            <div style={{maxWidth:540,margin:'0 auto',padding:'16px 16px 14px'}}>
 
-              <div style={{ display:'flex', justifyContent:'space-between', alignItems:'flex-start', marginBottom:10 }}>
-                <div onClick={handleTitleTap} style={{ cursor:'default', userSelect:'none' }}>
-                  <h1 style={{ fontSize:24, fontWeight:400, letterSpacing:'0.02em', color:'#f5f0e8' }}>🌿 Forage</h1>
-                  <p style={{ ...mono, fontSize:11, color:'#666', marginTop:2, letterSpacing:'0.04em' }}>
+              <div style={{display:'flex',justifyContent:'space-between',alignItems:'flex-start',marginBottom:10}}>
+                <div onClick={handleTitleTap} style={{cursor:'default',userSelect:'none',WebkitUserSelect:'none'}}>
+                  <h1 style={{fontSize:24,fontWeight:400,letterSpacing:'0.02em',color:T.headerText}}>🌿 Forage</h1>
+                  <p style={{...mono,fontSize:11,color:T.sub,marginTop:2,letterSpacing:'0.04em'}}>
                     {checkedCount}/{totalCount} · {pct}%
-                    {mode==='faves' && <span style={{ color:'#c8a96e', marginLeft:8 }}>⭐ {starredKeys.length}</span>}
+                    {mode==='faves'&&<span style={{color:'#c8a96e',marginLeft:8}}>⭐ {starredKeys.length}</span>}
                   </p>
                 </div>
-                <div style={{ display:'flex', gap:5, flexWrap:'wrap', justifyContent:'flex-end' }}>
-                  {[
-                    { label: mode==='faves' ? '⭐ FAVES' : '☆ FAVES',  active: mode==='faves',  onClick: ()=>setMode(m=>m==='all'?'faves':'all') },
-                    { label: allChecked ? '✕ NONE' : '+ SELECT',   active: allChecked,     onClick: toggleAll },
-                    { label: '📋 COPY',   active: false, onClick: sendList },
-                    { label: '↗ SHARE',  active: false, onClick: shareApp },
-                    { label: '↕ SORT',   active: sortMode, onClick: ()=>setSortMode(r=>!r) },
-                  ].map(btn => (
-                    <button key={btn.label} onClick={btn.onClick} style={{ ...mono, background: btn.active ? '#c8a96e' : 'transparent', border: `1px solid ${btn.active ? '#c8a96e' : '#444'}`, color: btn.active ? '#111' : '#888', borderRadius:6, padding:'5px 9px', fontSize:10, cursor:'pointer', letterSpacing:'0.05em', whiteSpace:'nowrap' }}>
-                      {btn.label}
-                    </button>
-                  ))}
+                <div style={{display:'flex',gap:5,flexWrap:'wrap',justifyContent:'flex-end'}}>
+                  <button onClick={()=>setMode(m=>m==='all'?'faves':'all')} style={hBtn(mode==='faves')}>{mode==='faves'?'⭐ FAVES':'☆ FAVES'}</button>
+                  <button onClick={toggleAll} style={hBtn(allChecked)}>{allChecked?'✕ NONE':'+ SELECT'}</button>
+                  <button onClick={sendList} style={hBtn(false,'#888')}>📋 COPY</button>
+                  <button onClick={shareList} style={hBtn(false,'#888')}>↗ SHARE</button>
+                  <button onClick={()=>setSortMode(r=>!r)} style={hBtn(sortMode,'#888')}>↕ SORT</button>
+                  <button onClick={()=>setTheme(t=>t==='light'?'dark':'light')} style={hBtn(theme==='dark','#888')}>{theme==='dark'?'☀️':'🌙'}</button>
                 </div>
               </div>
 
-              {/* Progress */}
-              <div style={{ height:2, background:'#2a2a2a', borderRadius:1, overflow:'hidden', marginBottom:10 }}>
-                <div style={{ height:'100%', width:`${pct}%`, background:'linear-gradient(90deg,#c8a96e,#e8c98e)', transition:'width 0.4s ease' }} />
+              <div style={{height:2,background:'#2a2a2a',borderRadius:1,overflow:'hidden',marginBottom:10}}>
+                <div style={{height:'100%',width:`${pct}%`,background:'linear-gradient(90deg,#c8a96e,#e8c98e)',transition:'width 0.4s ease'}}/>
               </div>
 
-              {/* Search */}
               <input value={search} onChange={e=>setSearch(e.target.value)} placeholder="Search..." spellCheck={true}
-                style={{ ...mono, width:'100%', background:'#1e1e1e', border:'none', borderRadius:7, padding:'9px 12px', color:'#f5f0e8', fontSize:14, outline:'none', marginBottom:8 }} />
+                style={{...mono,width:'100%',background:T.searchBg,border:'none',borderRadius:7,padding:'9px 12px',color:T.searchText,fontSize:14,outline:'none',marginBottom:8}}/>
 
-              {/* Filter row */}
-              <div style={{ display:'flex', gap:6 }}>
+              <div style={{display:'flex',gap:6}}>
                 <select value={filterCat} onChange={e=>setFilterCat(e.target.value)}
-                  style={{ ...mono, flex:1, background:'#1e1e1e', border:'none', borderRadius:7, padding:'7px 10px', color:'#888', fontSize:12, outline:'none', minWidth:0 }}>
+                  style={{...mono,flex:1,background:T.selBg,border:'none',borderRadius:7,padding:'7px 10px',color:T.selText,fontSize:12,outline:'none',minWidth:0}}>
                   <option value="All">All categories</option>
                   {catOrder.map(c=><option key={c} value={c}>{c}</option>)}
                 </select>
-                <button onClick={()=>setHideChecked(h=>!h)}
-                  style={{ ...mono, background: hideChecked?'#c8a96e':'transparent', border:`1px solid ${hideChecked?'#c8a96e':'#444'}`, color: hideChecked?'#111':'#888', borderRadius:6, padding:'5px 9px', fontSize:10, cursor:'pointer', letterSpacing:'0.05em', whiteSpace:'nowrap' }}>
-                  {hideChecked ? 'SHOW ALL' : 'HIDE DONE'}
-                </button>
-                {lastShop && (
-                  <button onClick={recallLastShop}
-                    style={{ ...mono, background:'transparent', border:'1px solid #444', color:'#888', borderRadius:6, padding:'5px 9px', fontSize:10, cursor:'pointer', letterSpacing:'0.05em', whiteSpace:'nowrap' }}>
-                    ↩ LAST
-                  </button>
-                )}
+                <button onClick={()=>setHideChecked(h=>!h)} style={hBtn(hideChecked)}>{hideChecked?'SHOW ALL':'HIDE DONE'}</button>
+                {lastShop&&<button onClick={recallLastShop} style={hBtn(false,'#888')}>↩ LAST</button>}
               </div>
             </div>
           </div>
 
-          {/* Categories */}
-          <div style={{ maxWidth:540, margin:'0 auto', padding:'12px 14px 0' }}>
-            {catOrder.map((cat, catIdx) => {
-              const { defaults=[], customs=[] } = allCategories[cat]||{};
-              const allItems     = [...defaults, ...customs];
-              const visibleItems = allItems.filter(item => itemVisible(cat, item));
-              const isOpen       = openCats[cat] !== false;
-              const catChecked   = allItems.filter(item => getIS(`${cat}::${item}`).checked).length;
-
-              if (visibleItems.length === 0 && editingCat !== cat) return null;
+          {/* ── CATEGORIES ── */}
+          <div style={{maxWidth:540,margin:'0 auto',padding:'12px 14px 0'}}>
+            {catOrder.map((cat,catIdx)=>{
+              const{defaults=[],customs=[],isCustom:isCustCat}=allCats[cat]||{};
+              const allItems=[...defaults,...customs];
+              const visible=allItems.filter(item=>itemVisible(cat,item));
+              const isOpen=openCats[cat]!==false;
+              const catChecked=allItems.filter(item=>getIS(`${cat}::${item}`).checked).length;
+              if(visible.length===0&&editingCat!==cat) return null;
 
               return (
-                <div key={cat} style={{ marginBottom:6 }}>
-                  {/* Cat header */}
-                  <div style={{ display:'flex', alignItems:'center', borderBottom:'1px solid #e8e3da', paddingBottom:6, paddingTop:8, gap:4 }}>
-                    {sortMode && (
-                      <div style={{ display:'flex', flexDirection:'column', marginRight:2 }}>
-                        <button onClick={()=>moveCat(cat,'up')} disabled={catIdx===0}
-                          style={{ background:'none', border:'none', cursor: catIdx===0?'default':'pointer', color: catIdx===0?'#e0dbd0':'#999', fontSize:10, padding:'1px 3px', lineHeight:1 }}>▲</button>
-                        <button onClick={()=>moveCat(cat,'down')} disabled={catIdx===catOrder.length-1}
-                          style={{ background:'none', border:'none', cursor: catIdx===catOrder.length-1?'default':'pointer', color: catIdx===catOrder.length-1?'#e0dbd0':'#999', fontSize:10, padding:'1px 3px', lineHeight:1 }}>▼</button>
+                <div key={cat} style={{marginBottom:6}}>
+                  {/* cat header */}
+                  <div style={{display:'flex',alignItems:'center',borderBottom:`1px solid ${T.catBorder}`,paddingBottom:6,paddingTop:8,gap:4}}>
+                    {sortMode&&(
+                      <div style={{display:'flex',flexDirection:'column',marginRight:2}}>
+                        <button onClick={()=>moveCat(cat,'up')} disabled={catIdx===0} style={{background:'none',border:'none',cursor:catIdx===0?'default':'pointer',color:catIdx===0?T.catBorder:'#999',fontSize:10,padding:'1px 3px',lineHeight:1}}>▲</button>
+                        <button onClick={()=>moveCat(cat,'down')} disabled={catIdx===catOrder.length-1} style={{background:'none',border:'none',cursor:catIdx===catOrder.length-1?'default':'pointer',color:catIdx===catOrder.length-1?T.catBorder:'#999',fontSize:10,padding:'1px 3px',lineHeight:1}}>▼</button>
                       </div>
                     )}
-                    <button onClick={()=>setOpenCats(p=>({...p,[cat]:!p[cat]}))}
-                      style={{ background:'none', border:'none', cursor:'pointer', textAlign:'left', flex:1, padding:0 }}>
-                      <span style={{ ...mono, fontSize:11, fontWeight:500, color:'#7a6a5a', letterSpacing:'0.08em', textTransform:'uppercase' }}>{cat}</span>
-                      {catChecked>0 && <span style={{ ...mono, fontSize:10, color:'#c8a96e', marginLeft:6 }}>{catChecked}/{allItems.length}</span>}
+                    <button onClick={()=>setOpenCats(p=>({...p,[cat]:!p[cat]}))} style={{background:'none',border:'none',cursor:'pointer',textAlign:'left',flex:1,padding:0}}>
+                      <span style={{...mono,fontSize:11,fontWeight:500,color:T.catLabel,letterSpacing:'0.08em',textTransform:'uppercase'}}>{cat}</span>
+                      {catChecked>0&&<span style={{...mono,fontSize:10,color:'#c8a96e',marginLeft:6}}>{catChecked}/{allItems.length}</span>}
                     </button>
-                    <button onClick={()=>{ setEditingCat(editingCat===cat?null:cat); setNewItemText(''); setOpenCats(p=>({...p,[cat]:true})); }}
-                      style={{ background: editingCat===cat?'#c8a96e':'none', border:`1px solid ${editingCat===cat?'#c8a96e':'#ddd'}`, borderRadius:5, cursor:'pointer', color: editingCat===cat?'#111':'#ccc', fontSize:17, padding:'0 7px 1px', lineHeight:'1.45' }}>+</button>
-                    <span onClick={()=>setOpenCats(p=>({...p,[cat]:!p[cat]}))}
-                      style={{ color:'#ccc', fontSize:12, display:'inline-block', marginLeft:2, cursor:'pointer', userSelect:'none', transform: isOpen?'rotate(0deg)':'rotate(-90deg)', transition:'transform 0.2s' }}>▾</span>
+                    {/* delete custom cat */}
+                    {sortMode&&isCustCat&&(
+                      <button onClick={()=>deleteCustomCat(cat)} style={{background:'none',border:'1px solid #e07070',borderRadius:4,cursor:'pointer',color:'#e07070',fontSize:10,padding:'2px 6px',...mono}}>DEL</button>
+                    )}
+                    <button onClick={()=>{setEditingCat(editingCat===cat?null:cat);setNewItemText('');setSuggestions([]);setOpenCats(p=>({...p,[cat]:true}));}}
+                      style={{background:editingCat===cat?'#c8a96e':'none',border:`1px solid ${editingCat===cat?'#c8a96e':T.catBorder}`,borderRadius:5,cursor:'pointer',color:editingCat===cat?'#111':T.catLabel,fontSize:17,padding:'0 7px 1px',lineHeight:'1.45'}}>+</button>
+                    <span onClick={()=>setOpenCats(p=>({...p,[cat]:!p[cat]}))} style={{color:T.catLabel,fontSize:12,display:'inline-block',marginLeft:2,cursor:'pointer',userSelect:'none',transform:isOpen?'rotate(0deg)':'rotate(-90deg)',transition:'transform 0.2s'}}>▾</span>
                   </div>
 
-                  {/* Inline add */}
-                  {editingCat===cat && (
-                    <div style={{ display:'flex', gap:6, padding:'8px 0 4px' }}>
-                      <input autoFocus value={newItemText} onChange={e=>setNewItemText(e.target.value)}
-                        onKeyDown={e=>{ if(e.key==='Enter') addItem(cat); if(e.key==='Escape') setEditingCat(null); }}
-                        placeholder={`Add to ${cat.split(' ').slice(1).join(' ')}...`}
-                        spellCheck={true}
-                        style={{ flex:1, background:'#fff', border:'1px solid #e8e3da', borderRadius:7, padding:'8px 10px', fontSize:15, color:'#2a1a0a', outline:'none' }} />
-                      <button onClick={()=>addItem(cat)} style={{ ...mono, background:'#111', color:'#f5f0e8', border:'none', borderRadius:7, padding:'8px 12px', fontSize:12, cursor:'pointer' }}>ADD</button>
-                      <button onClick={()=>setEditingCat(null)} style={{ background:'transparent', color:'#aaa', border:'1px solid #e0dbd0', borderRadius:7, padding:'8px 9px', fontSize:12, cursor:'pointer' }}>✕</button>
+                  {/* inline add */}
+                  {editingCat===cat&&(
+                    <div style={{padding:'8px 0 4px'}}>
+                      <div style={{display:'flex',gap:6}}>
+                        <input autoFocus value={newItemText} onChange={e=>handleNewItemChange(e.target.value)}
+                          onKeyDown={e=>{if(e.key==='Enter')addItem(cat);if(e.key==='Escape')setEditingCat(null);}}
+                          placeholder={`Add to ${cat.split(' ').slice(1).join(' ')}...`} spellCheck={true}
+                          style={{flex:1,background:T.inputBg,border:`1px solid ${T.inputBorder}`,borderRadius:7,padding:'8px 10px',fontSize:15,color:T.itemText,outline:'none'}}/>
+                        <button onClick={()=>addItem(cat)} style={{...mono,background:'#111',color:'#f5f0e8',border:'none',borderRadius:7,padding:'8px 12px',fontSize:12,cursor:'pointer'}}>ADD</button>
+                        <button onClick={()=>{setEditingCat(null);setSuggestions([]);}} style={{background:'transparent',color:'#aaa',border:`1px solid ${T.catBorder}`,borderRadius:7,padding:'8px 9px',fontSize:12,cursor:'pointer'}}>✕</button>
+                      </div>
+                      {/* suggestions */}
+                      {suggestions.length>0&&(
+                        <div style={{display:'flex',flexWrap:'wrap',gap:5,marginTop:6}}>
+                          {suggestions.map(s=>(
+                            <button key={s} className="suggestion-btn" onClick={()=>{setNewItemText(s);setSuggestions([]);}}
+                              style={{...mono,background:T.noteBg,border:`1px solid ${T.inputBorder}`,borderRadius:12,padding:'4px 10px',fontSize:11,color:T.noteText,cursor:'pointer'}}>
+                              {s}
+                            </button>
+                          ))}
+                        </div>
+                      )}
                     </div>
                   )}
 
-                  {/* Items */}
-                  {isOpen && visibleItems.map(item => {
-                    const key        = `${cat}::${item}`;
-                    const is         = getIS(key);
-                    const isCustom   = customs.includes(item);
-                    const qty        = is.qty || 1;
-                    const isHeld     = holdKey === key;
-                    const displayName = is.name || item;
-                    const isEditingName = editNameKey === key;
+                  {/* items */}
+                  {isOpen&&visible.map(item=>{
+                    const key=`${cat}::${item}`;
+                    const is=getIS(key);
+                    const isCustom=customs.includes(item);
+                    const qty=is.qty||1;
+                    const isHeld=holdKey===key;
+                    const displayName=is.name||item;
+                    const isEditingName=editNameKey===key;
+                    const isEditingNote=editNoteKey===key;
 
                     return (
-                      <div key={key} style={{ display:'flex', alignItems:'center', gap:8, padding:'10px 2px', borderBottom:'1px solid #f2ede6', background: isHeld?'#fff8f8':'transparent', transition:'background 0.1s' }}>
+                      <div key={key}>
+                        <div style={{display:'flex',alignItems:'center',gap:8,padding:'10px 2px',borderBottom:`1px solid ${T.itemBorder}`,background:isHeld?'#fff8f8':'transparent',transition:'background 0.1s'}}>
+                          {/* checkbox */}
+                          <div onClick={()=>toggleCheck(key)} style={{width:21,height:21,borderRadius:5,flexShrink:0,cursor:'pointer',border:is.checked?'2px solid #c8a96e':'2px solid #d8d3cc',background:is.checked?'#c8a96e':'transparent',display:'flex',alignItems:'center',justifyContent:'center',transition:'all 0.15s'}}>
+                            {is.checked&&<svg width="11" height="11" viewBox="0 0 11 11"><polyline points="1.5,5.5 4.5,8.5 9.5,2.5" stroke="#111" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none"/></svg>}
+                          </div>
 
-                        {/* Checkbox */}
-                        <div onClick={()=>toggleCheck(key)}
-                          style={{ width:21, height:21, borderRadius:5, flexShrink:0, cursor:'pointer', border: is.checked?'2px solid #c8a96e':'2px solid #d8d3cc', background: is.checked?'#c8a96e':'transparent', display:'flex', alignItems:'center', justifyContent:'center', transition:'all 0.15s' }}>
-                          {is.checked && <svg width="11" height="11" viewBox="0 0 11 11"><polyline points="1.5,5.5 4.5,8.5 9.5,2.5" stroke="#111" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none"/></svg>}
+                          {/* name */}
+                          <div style={{flex:1,minWidth:0}}>
+                            {isEditingName?(
+                              <input autoFocus value={editNameVal} onChange={e=>setEditNameVal(e.target.value)}
+                                onBlur={saveNameEdit} onKeyDown={e=>{if(e.key==='Enter')saveNameEdit();if(e.key==='Escape')setEditNameKey(null);}}
+                                spellCheck={true} style={{width:'100%',background:T.inputBg,border:`1px solid #c8a96e`,borderRadius:6,padding:'4px 8px',fontSize:15,color:T.itemText,outline:'none'}}/>
+                            ):(
+                              <span
+                                onClick={()=>toggleCheck(key)}
+                                onMouseDown={()=>{nameTimer.current=setTimeout(()=>startNameEdit(key,displayName),600);}}
+                                onMouseUp={()=>clearTimeout(nameTimer.current)}
+                                onMouseLeave={()=>clearTimeout(nameTimer.current)}
+                                onTouchStart={()=>{nameTimer.current=setTimeout(()=>startNameEdit(key,displayName),600);}}
+                                onTouchEnd={()=>clearTimeout(nameTimer.current)}
+                                onTouchMove={()=>clearTimeout(nameTimer.current)}
+                                style={{fontSize:15,color:is.checked?T.itemDone:T.itemText,textDecoration:is.checked?'line-through':'none',cursor:'pointer',transition:'all 0.15s',userSelect:'none',WebkitUserSelect:'none',display:'block'}}>
+                                {displayName}
+                              </span>
+                            )}
+                            {is.note&&!isEditingNote&&(
+                              <span onClick={()=>startNoteEdit(key)} style={{...mono,fontSize:11,color:T.noteText,cursor:'pointer',display:'block',marginTop:2,paddingLeft:1}}>{is.note}</span>
+                            )}
+                          </div>
+
+                          {/* note toggle */}
+                          <button onClick={()=>isEditingNote?saveNoteEdit():startNoteEdit(key)}
+                            title="Add note" style={{background:'none',border:'none',cursor:'pointer',fontSize:12,opacity:is.note?1:0.2,padding:'0 1px',transition:'opacity 0.15s',color:T.noteText}}>📝</button>
+
+                          {/* qty */}
+                          {editQtyKey===key?(
+                            <div style={{display:'flex',alignItems:'center',gap:3}}>
+                              <button onClick={()=>qty<=1?setEditQtyKey(null):setQty(key,qty-1)} style={{...mono,background:T.noteBg,border:`1px solid ${T.inputBorder}`,borderRadius:4,width:22,height:22,cursor:'pointer',fontSize:14,color:'#5a4a3a',padding:0,display:'flex',alignItems:'center',justifyContent:'center'}}>−</button>
+                              <span style={{...mono,fontSize:13,color:'#5a4a3a',minWidth:20,textAlign:'center'}}>{qty}</span>
+                              <button onClick={()=>setQty(key,qty+1)} style={{...mono,background:T.noteBg,border:`1px solid ${T.inputBorder}`,borderRadius:4,width:22,height:22,cursor:'pointer',fontSize:14,color:'#5a4a3a',padding:0,display:'flex',alignItems:'center',justifyContent:'center'}}>+</button>
+                              <button onClick={()=>setEditQtyKey(null)} style={{...mono,background:T.noteBg,border:`1px solid ${T.inputBorder}`,borderRadius:4,width:22,height:22,cursor:'pointer',fontSize:12,color:'#aaa',padding:0,display:'flex',alignItems:'center',justifyContent:'center'}}>✓</button>
+                            </div>
+                          ):(
+                            <button onClick={()=>setEditQtyKey(key)} style={{...mono,background:qty>1?'#f0e8d4':'transparent',border:qty>1?'1px solid #e0c89e':'1px solid transparent',borderRadius:4,padding:'2px 5px',fontSize:11,color:qty>1?'#8a6a3a':'#ccc',cursor:'pointer'}}>
+                              {qty>1?`×${qty}`:'×'}
+                            </button>
+                          )}
+
+                          {/* star */}
+                          <button onClick={()=>toggleStar(key)} style={{background:'none',border:'none',cursor:'pointer',fontSize:13,opacity:is.starred?1:0.15,padding:'0 1px',transition:'opacity 0.15s'}}>⭐</button>
+
+                          {/* hold-delete */}
+                          <button
+                            onMouseDown={()=>startHold(cat,item,isCustom)} onMouseUp={cancelHold} onMouseLeave={cancelHold}
+                            onTouchStart={e=>{e.preventDefault();startHold(cat,item,isCustom);}} onTouchEnd={cancelHold} onTouchMove={cancelHold}
+                            style={{background:isHeld?'#fee8e8':'none',border:isHeld?'1px solid #f0c0c0':'1px solid transparent',borderRadius:4,cursor:'pointer',color:isHeld?'#e07070':'#d8d3cc',fontSize:14,padding:'1px 4px',lineHeight:1,transition:'all 0.1s',userSelect:'none',WebkitUserSelect:'none'}}>✕</button>
                         </div>
 
-                        {/* Name — tap to check, hold to edit */}
-                        {isEditingName ? (
-                          <input
-                            autoFocus
-                            value={editNameVal}
-                            onChange={e=>setEditNameVal(e.target.value)}
-                            onBlur={saveNameEdit}
-                            onKeyDown={e=>{ if(e.key==='Enter') saveNameEdit(); if(e.key==='Escape'){setEditNameKey(null);} }}
-                            spellCheck={true}
-                            style={{ flex:1, background:'#fff', border:'1px solid #c8a96e', borderRadius:6, padding:'4px 8px', fontSize:15, color:'#2a1a0a', outline:'none' }}
-                          />
-                        ) : (
-                          <span
-                            onClick={()=>toggleCheck(key)}
-                            onMouseDown={()=>{ nameTimer.current = setTimeout(()=>startNameEdit(key, displayName), 600); }}
-                            onMouseUp={()=>clearTimeout(nameTimer.current)}
-                            onMouseLeave={()=>clearTimeout(nameTimer.current)}
-                            onTouchStart={()=>{ nameTimer.current = setTimeout(()=>startNameEdit(key, displayName), 600); }}
-                            onTouchEnd={()=>clearTimeout(nameTimer.current)}
-                            onTouchMove={()=>clearTimeout(nameTimer.current)}
-                            style={{ flex:1, fontSize:15, color: is.checked?'#bbb':'#2a1a0a', textDecoration: is.checked?'line-through':'none', cursor:'pointer', transition:'all 0.15s', userSelect:'none', WebkitUserSelect:'none' }}>
-                            {displayName}
-                          </span>
-                        )}
-
-                        {/* Qty */}
-                        {editQtyKey===key ? (
-                          <div style={{ display:'flex', alignItems:'center', gap:3 }}>
-                            <button onClick={()=>{ qty<=1?setEditQtyKey(null):setQty(key,qty-1); }} style={{ ...mono, background:'#f5f0e8', border:'1px solid #e8e3da', borderRadius:4, width:22, height:22, cursor:'pointer', fontSize:14, color:'#5a4a3a', padding:0, display:'flex', alignItems:'center', justifyContent:'center' }}>−</button>
-                            <span style={{ ...mono, fontSize:13, color:'#5a4a3a', minWidth:20, textAlign:'center' }}>{qty}</span>
-                            <button onClick={()=>setQty(key,qty+1)} style={{ ...mono, background:'#f5f0e8', border:'1px solid #e8e3da', borderRadius:4, width:22, height:22, cursor:'pointer', fontSize:14, color:'#5a4a3a', padding:0, display:'flex', alignItems:'center', justifyContent:'center' }}>+</button>
-                            <button onClick={()=>setEditQtyKey(null)} style={{ ...mono, background:'#f5f0e8', border:'1px solid #e8e3da', borderRadius:4, width:22, height:22, cursor:'pointer', fontSize:12, color:'#aaa', padding:0, display:'flex', alignItems:'center', justifyContent:'center' }}>✓</button>
+                        {/* inline note editor */}
+                        {isEditingNote&&(
+                          <div style={{display:'flex',gap:6,padding:'6px 2px 8px',borderBottom:`1px solid ${T.itemBorder}`}}>
+                            <textarea value={editNoteVal} onChange={e=>setEditNoteVal(e.target.value)} autoFocus
+                              placeholder="Add a note (e.g. home brand only)..."
+                              onKeyDown={e=>{if(e.key==='Escape')saveNoteEdit();}}
+                              style={{flex:1,background:T.inputBg,border:`1px solid #c8a96e`,borderRadius:6,padding:'6px 8px',fontSize:13,color:T.noteText,outline:'none',resize:'none',height:52,...mono}}/>
+                            <div style={{display:'flex',flexDirection:'column',gap:4}}>
+                              <button onClick={saveNoteEdit} style={{...mono,background:'#111',color:'#f5f0e8',border:'none',borderRadius:6,padding:'5px 10px',fontSize:11,cursor:'pointer'}}>SAVE</button>
+                              <button onClick={()=>setEditNoteKey(null)} style={{background:'transparent',color:'#aaa',border:`1px solid ${T.catBorder}`,borderRadius:6,padding:'5px 8px',fontSize:11,cursor:'pointer'}}>✕</button>
+                            </div>
                           </div>
-                        ) : (
-                          <button onClick={()=>setEditQtyKey(key)}
-                            style={{ ...mono, background: qty>1?'#f0e8d4':'transparent', border: qty>1?'1px solid #e0c89e':'1px solid transparent', borderRadius:4, padding:'2px 5px', fontSize:11, color: qty>1?'#8a6a3a':'#ccc', cursor:'pointer' }}>
-                            {qty>1?`×${qty}`:'×'}
-                          </button>
                         )}
-
-                        {/* Star */}
-                        <button onClick={()=>toggleStar(key)}
-                          style={{ background:'none', border:'none', cursor:'pointer', fontSize:13, opacity: is.starred?1:0.15, padding:'0 1px', transition:'opacity 0.15s' }}>⭐</button>
-
-                        {/* Hold-to-delete */}
-                        <button
-                          onMouseDown={()=>startHold(cat,item,isCustom)}
-                          onMouseUp={cancelHold} onMouseLeave={cancelHold}
-                          onTouchStart={e=>{e.preventDefault();startHold(cat,item,isCustom);}}
-                          onTouchEnd={cancelHold} onTouchMove={cancelHold}
-                          style={{ background: isHeld?'#fee8e8':'none', border: isHeld?'1px solid #f0c0c0':'1px solid transparent', borderRadius:4, cursor:'pointer', color: isHeld?'#e07070':'#d8d3cc', fontSize:14, padding:'1px 4px', lineHeight:1, transition:'all 0.1s', userSelect:'none', WebkitUserSelect:'none' }}>
-                          ✕
-                        </button>
                       </div>
                     );
                   })}
@@ -479,47 +533,60 @@
               );
             })}
 
-            {hiddenItems.length > 0 && (
-              <button onClick={()=>{setHiddenItems([]);showToast('Hidden items restored');}}
-                style={{ ...mono, width:'100%', marginTop:16, background:'transparent', border:'1px dashed #ddd', borderRadius:8, padding:10, color:'#bbb', fontSize:11, cursor:'pointer', letterSpacing:'0.04em' }}>
+            {/* + Add custom category */}
+            {!addingCat?(
+              <button onClick={()=>setAddingCat(true)} style={{...mono,width:'100%',marginTop:12,background:'transparent',border:`1px dashed ${T.catBorder}`,borderRadius:8,padding:10,color:T.restoreBtn,fontSize:11,cursor:'pointer',letterSpacing:'0.04em'}}>
+                + ADD CATEGORY
+              </button>
+            ):(
+              <div style={{display:'flex',gap:6,marginTop:12}}>
+                <input autoFocus value={newCatName} onChange={e=>setNewCatName(e.target.value)}
+                  onKeyDown={e=>{if(e.key==='Enter')addCustomCat();if(e.key==='Escape')setAddingCat(false);}}
+                  placeholder="e.g. 🌶️ Spices" spellCheck={true}
+                  style={{flex:1,background:T.inputBg,border:`1px solid ${T.inputBorder}`,borderRadius:7,padding:'8px 10px',fontSize:15,color:T.itemText,outline:'none'}}/>
+                <button onClick={addCustomCat} style={{...mono,background:'#111',color:'#f5f0e8',border:'none',borderRadius:7,padding:'8px 12px',fontSize:12,cursor:'pointer'}}>ADD</button>
+                <button onClick={()=>setAddingCat(false)} style={{background:'transparent',color:'#aaa',border:`1px solid ${T.catBorder}`,borderRadius:7,padding:'8px 9px',fontSize:12,cursor:'pointer'}}>✕</button>
+              </div>
+            )}
+
+            {hiddenItems.length>0&&(
+              <button onClick={()=>{setHiddenItems([]);showToast('Hidden items restored');}} style={{...mono,width:'100%',marginTop:8,background:'transparent',border:`1px dashed ${T.catBorder}`,borderRadius:8,padding:10,color:T.restoreBtn,fontSize:11,cursor:'pointer',letterSpacing:'0.04em'}}>
                 RESTORE {hiddenItems.length} HIDDEN ITEM{hiddenItems.length!==1?'S':''}
               </button>
             )}
 
-            <button onClick={reset}
-              style={{ ...mono, width:'100%', marginTop:8, marginBottom:8, background:'transparent', border:'1px solid #e8e3da', borderRadius:8, padding:10, color:'#bbb', fontSize:11, cursor:'pointer', letterSpacing:'0.04em' }}>
+            <button onClick={reset} style={{...mono,width:'100%',marginTop:8,marginBottom:8,background:'transparent',border:`1px solid ${T.catBorder}`,borderRadius:8,padding:10,color:T.resetBtn,fontSize:11,cursor:'pointer',letterSpacing:'0.04em'}}>
               RESET LIST{lastShop?' · SAVE LAST SHOP':''}
             </button>
           </div>
 
-          {/* Undo toast */}
-          {undoItem && (
-            <div style={{ position:'fixed', bottom:28, left:'50%', transform:'translateX(-50%)', background:'#2a1a0a', color:'#f5f0e8', padding:'10px 8px 10px 18px', borderRadius:20, fontSize:13, boxShadow:'0 4px 20px rgba(0,0,0,0.4)', zIndex:200, display:'flex', alignItems:'center', gap:10, whiteSpace:'nowrap', ...mono }}>
-              <span>Deleted <em style={{ fontStyle:'normal', color:'#c8a96e' }}>{undoItem.item}</em></span>
-              <button onClick={undoDelete} style={{ background:'#c8a96e', color:'#111', border:'none', borderRadius:12, padding:'4px 12px', fontSize:12, cursor:'pointer', fontWeight:700, letterSpacing:'0.05em', ...mono }}>UNDO</button>
+          {/* ── UNDO TOAST ── */}
+          {undoItem&&(
+            <div style={{position:'fixed',bottom:28,left:'50%',transform:'translateX(-50%)',background:'#2a1a0a',color:'#f5f0e8',padding:'10px 8px 10px 18px',borderRadius:20,fontSize:13,boxShadow:'0 4px 20px rgba(0,0,0,0.4)',zIndex:200,display:'flex',alignItems:'center',gap:10,whiteSpace:'nowrap',...mono}}>
+              <span>Deleted <em style={{fontStyle:'normal',color:'#c8a96e'}}>{undoItem.item}</em></span>
+              <button onClick={undoDelete} style={{background:'#c8a96e',color:'#111',border:'none',borderRadius:12,padding:'4px 12px',fontSize:12,cursor:'pointer',fontWeight:700,...mono}}>UNDO</button>
             </div>
           )}
 
-          {/* General toast */}
-          {toast && !undoItem && (
-            <div style={{ position:'fixed', bottom:28, left:'50%', transform:'translateX(-50%)', background:'#111', color:'#f5f0e8', padding:'10px 20px', borderRadius:20, fontSize:13, boxShadow:'0 4px 20px rgba(0,0,0,0.35)', zIndex:200, whiteSpace:'nowrap', ...mono }}>
+          {/* ── GENERAL TOAST ── */}
+          {toast&&!undoItem&&(
+            <div style={{position:'fixed',bottom:28,left:'50%',transform:'translateX(-50%)',background:'#111',color:'#f5f0e8',padding:'10px 20px',borderRadius:20,fontSize:13,boxShadow:'0 4px 20px rgba(0,0,0,0.35)',zIndex:200,whiteSpace:'nowrap',...mono}}>
               {toast}
             </div>
           )}
 
-          {/* Ace easter egg */}
-          {aceMsg && (
-            <div onClick={()=>setAceMsg(null)}
-              style={{ position:'fixed', bottom:40, left:'50%', transform:'translateX(-50%)', background:'#1a1a1a', color:'#f5f0e8', padding:'20px 28px', borderRadius:16, fontSize:13, boxShadow:'0 8px 32px rgba(0,0,0,0.5)', zIndex:300, whiteSpace:'pre', textAlign:'center', lineHeight:1.7, cursor:'pointer', animation:'popIn 0.3s ease forwards', ...mono }}>
+          {/* ── ACE POPUP ── */}
+          {aceMsg&&(
+            <div onClick={()=>setAceMsg(null)} style={{position:'fixed',bottom:40,left:'50%',transform:'translateX(-50%)',background:'#1a1a1a',color:'#f5f0e8',padding:'20px 28px',borderRadius:16,fontSize:13,boxShadow:'0 8px 32px rgba(0,0,0,0.5)',zIndex:300,whiteSpace:'pre',textAlign:'center',lineHeight:1.7,cursor:'pointer',animation:'popIn 0.3s ease forwards',...mono}}>
               {aceMsg}
-              <div style={{ marginTop:12, fontSize:10, color:'#666', letterSpacing:'0.08em' }}>// TAP TO CLOSE</div>
+              <div style={{marginTop:12,fontSize:10,color:'#666',letterSpacing:'0.08em'}}>// TAP TO CLOSE</div>
             </div>
           )}
         </div>
       );
     }
 
-    ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+    ReactDOM.createRoot(document.getElementById('root')).render(<App/>);
   </script>
 </body>
 </html>
