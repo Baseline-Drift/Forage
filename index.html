@@ -709,7 +709,7 @@
                       <>
                         <p style={{...mono,fontSize:11,color:'#888',marginBottom:14,letterSpacing:'0.04em'}}>SCAN OR SHARE THIS LINK</p>
                         <img
-                          src={`https://chart.googleapis.com/chart?chs=180x180&cht=qr&chl=${encodeURIComponent(`${window.location.href.split('?')[0]}?sync=${syncPeerId}`)}&choe=UTF-8&chco=f5f0e8,1a1a1a`}
+                          src={`https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=${encodeURIComponent(`${window.location.href.split('?')[0]}?sync=${syncPeerId}`)}&color=f5f0e8&bgcolor=1a1a1a&margin=10`}
                           style={{borderRadius:12,width:180,height:180,margin:'0 auto 14px',display:'block'}}
                           alt="QR code"
                         />
