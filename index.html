@@ -207,7 +207,7 @@
         const syncId = params.get('sync');
         if(enc){
           try {
-            const keys = JSON.parse(atob(enc));
+            const keys = JSON.parse(decodeURIComponent(enc));
             setItemState(p=>{ const n={...p}; keys.forEach(k=>{n[k]={...(n[k]||{checked:false,qty:1}),starred:true};}); return n; });
             setMode('faves'); showToast('Shared list loaded ✓');
             window.history.replaceState({}, '', window.location.pathname);
@@ -345,11 +345,11 @@
       const shareList=()=>{
         if(starredKeys.length===0){ showToast('Star items to share ⭐'); return; }
         try {
-          const enc = btoa(JSON.stringify(starredKeys));
+          const enc = encodeURIComponent(JSON.stringify(starredKeys));
           const url = `${window.location.href.split('?')[0]}?list=${enc}`;
-          if(navigator.share){ navigator.share({title:'Forage',text:'My grocery list',url}).catch(()=>{}); }
+          if(navigator.share){ navigator.share({title:'Forage',text:'My grocery list',url}).catch(()=>{ navigator.clipboard.writeText(url).then(()=>showToast('Link copied ✓')); }); }
           else { navigator.clipboard.writeText(url).then(()=>showToast('Share link copied ✓')).catch(()=>showToast('Copy failed')); }
-        } catch { showToast('Share failed'); }
+        } catch(e) { showToast('Copy failed'); }
       };
 
       /* ── P2P Sync ── */
